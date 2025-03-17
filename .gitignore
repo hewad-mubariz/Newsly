@@ -1,0 +1,13 @@
+//
+//  .gitignore
+//  Newsly
+//
+//  Created by Hewad Mubariz on 18.03.25.
+//
+
+# Ignore macOS & Xcode files
+.DS_Store
+xcuserdata/
+*.xcworkspace
+Pods/
+DerivedData/
