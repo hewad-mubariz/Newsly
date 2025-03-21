@@ -13,14 +13,16 @@ class NewsViewModel: ObservableObject {
     @Published var isLoading = false
     
     private let newsService = NewsService()
-    
-    func loadNews() async {
-        isLoading = true
-        do {
-            articles = try await newsService.fetchNews()
-        } catch {
-            print("Error fetching news:", error)
-        }
-        isLoading = false
-    }
+
+     func loadNews(for section: NewsSection) async {
+           isLoading = true
+           do {
+               let service = NewsService()
+               articles = try await service.fetchNews(for: section)
+               isLoading = false
+           } catch {
+               print("❌ Error loading news: \(error)")
+               isLoading = false
+           }
+       }
 }
